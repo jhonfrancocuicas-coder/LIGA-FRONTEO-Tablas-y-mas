@@ -1,0 +1,6 @@
+{
+  "name": "Liga Fronteo Obelisco 2026",
+  "description": "Plataforma deportiva interactiva de fútbol/futsal: fixture, posiciones en tiempo real, goleadores, plantillas y panel de administración.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

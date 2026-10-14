@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "TournamentData": {
+      "title": "TournamentData",
+      "description": "Master data for tournament state, including teams, players, and matches",
+      "type": "object",
+      "properties": {
+        "teams": {
+          "type": "array",
+          "description": "List of 12 clubs participating in the tournament"
+        },
+        "players": {
+          "type": "array",
+          "description": "List of all registered players and statistics"
+        },
+        "matches": {
+          "type": "array",
+          "description": "List of tournament fixtures, scores, courts, and referee assignments"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last update"
+        },
+        "updatedBy": {
+          "type": "string",
+          "description": "UID or email of administrator who performed update"
+        }
+      },
+      "required": ["teams", "players", "matches"]
+    },
+    "AdminProfile": {
+      "title": "AdminProfile",
+      "description": "Admin identity and permissions",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Email of admin"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role description (e.g. ADMIN)"
+        },
+        "assignedAt": {
+          "type": "string",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/tournament/{tournamentId}": {
+      "schema": "TournamentData",
+      "description": "Tournament state documents"
+    },
+    "/admins/{adminUid}": {
+      "schema": "AdminProfile",
+      "description": "Registered admins of the tournament"
+    }
+  }
+}
